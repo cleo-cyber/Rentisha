@@ -1,0 +1,377 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+    --transition: .3s ease;
+    --paragraph: rgb(31 41 55);
+    --headers: rgb(39 39 42);
+    --p-font: 1.5rem;
+    --btn-padding: .5vh 2vw;
+    --btn-color: linear-gradient(to right, rgb(15 118 110),rgb(38 38 38));
+    --shadow: 1px 1px 1px #d6d4d4;
+    --hover-color: rgba(8, 99, 124, 0.925);
+}
+
+* {
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: max-content;
+    margin: 0;
+    padding: 0;
+}
+/* Hero Carousel */
+.hero_section {
+    margin-bottom: 5vh;
+    width: 100%;
+}
+
+.c-item {
+    height: 95vh;
+    position: relative;
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.4);
+}
+
+.my-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.c-none {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    transform: translateY(20%);
+    text-align: center;
+}
+
+    .c-none h5 {
+        color: #d6d4d4;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2vh;
+    }
+
+.my-form input {
+    border-radius: 2rem;
+    outline: none;
+    padding: 1.5vh 2vw;
+    width: 40%;
+    border: none;
+    background: #f4f4f4;
+}
+
+.my-form button {
+    border-radius: 2rem;
+    padding: 1.5vh 2vw;
+    border: none;
+    background: linear-gradient(to right, rgb(15 118 110),rgb(38 38 38));
+    color: whitesmoke;
+}
+
+.c-none p {
+    color: whitesmoke;
+    font-size: 1rem;
+}
+
+.c-none a {
+    text-decoration: none;
+    font-weight: 700;
+    color: white;
+}
+
+
+
+
+
+/* Card */
+#cardSect {
+    display: flex;
+    gap: 2rem;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 10vh auto;
+    padding: 4vh 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    flex: 1;
+    padding: 3vh 5vw;
+    background-color: #f4f4f4;
+    text-align: center;
+    box-shadow: 1px 1px 1px #d6d4d4;
+}
+
+    .card h3 {
+        font-size: 1.35rem;
+        display: inline-block;
+    }
+
+    .card i {
+        font-size: 2rem;
+        color: rgb(14 116 144);
+    }
+
+    .card:hover {
+        border: solid 1.5px rgb(14,116, 144);
+        transition: ease-in-out;
+    }
+
+
+/* Popular */
+
+
+.welcomePopular {
+    text-align: center;
+    padding: 2vh 0;
+}
+
+.viewmore .btn:hover {
+    color: #d6d4d4;
+    background-color: rgba(8, 99, 124, 0.925);
+    scale: .9;
+    transition: var(--transition);
+}
+
+.welcomePopular h1 {
+    color: var(--headers);
+}
+
+.viewmore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6vh;
+    padding: 4vh 0;
+}
+
+    .viewmore .btn {
+        border-radius: 2rem;
+        background: var(--btn-color);
+        color: #d6d4d4;
+        padding: 1.5vh 3vw;
+        box-shadow: var(--shadow);
+    }
+
+
+
+/* Popular Listings */
+
+.listings {
+    display: flex;
+    flex-direction: row;
+    height: 40vh;
+    gap: 1rem;
+    margin: 4vh auto;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.listing {
+    flex: 1;
+    position: relative;
+    background: #fff;
+}
+
+    .listing img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        filter: brightness(.4);
+    }
+
+        .listing img:hover {
+            scale: .9;
+            transition: var(--transition);
+            filter: brightness(.9);
+        }
+
+.listDetail {
+    position: absolute;
+    background: #f4f4f4;
+    top: 0vh;
+    padding: 1vh 4vw;
+    display: none;
+    opacity: .9;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.listing:hover .listDetail {
+    display: block;
+    transition: .3s ease-in-out;
+    scale: .9;
+}
+
+
+.h-dits {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .h-dits p {
+        font-weight: 600;
+    }
+
+    .h-dits i {
+        margin-left: .5rem;
+        font-size: 2rem;
+    }
+
+
+/* Reality */
+
+#reality {
+    margin: 4vh 4vh;
+}
+
+.realitytext {
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 4vh auto;
+}
+
+
+    .realitytext p {
+        color: var(--hover-color);
+    }
+
+    .realitytext h2 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        padding-bottom: 20px;
+        margin: 8vh auto;
+    }
+
+.realitycontent {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 4vh;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.realityimg {
+    flex: 1;
+}
+
+    .realityimg h2 {
+        margin-bottom: 2vh;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+.sider {
+    flex: 1;
+}
+
+.aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+    .aside i {
+        font-size: 2rem;
+        padding: 4vh;
+        background-color: #beb7b7;
+        border-radius: 50%;
+        margin-bottom: 2rem;
+    }
+
+        .aside i:hover {
+            background-color: #fff;
+            opacity: .9;
+            transition: var(--transition);
+            color: var(--headers);
+        }
+
+.sidecontent {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+    .sidecontent h3 {
+        font-size: 1.5rem;
+    }
+
+@media screen and (max-width:768px) {
+    #cardSect {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    }
+    /* Reality */
+    .realitycontent {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .realitytext h2 {
+        font-size: 1rem;
+        margin: 4vh auto;
+    }
+
+    .listings {
+        display: flex;
+        overflow: hidden;
+    }
+
+        .listings img {
+            width: 100vw;
+        }
+}

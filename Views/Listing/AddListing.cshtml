@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<h2>AddListing</h2>
+@model Rentisha.Models.Listing
+@using (Html.BeginForm("AddListing", "Listing", FormMethod.Post))
+            {
+                   
+
+                        @Html.AntiForgeryToken()
+<div class="form-floating mb-3">
+    @Html.TextBoxFor(m => m.County, new { placeholder = "Enter your name" })
+    @Html.ValidationMessageFor(m => m.County, "", new { })
+    <label>County</label>
+    @Html.TextBoxFor(m => m.Town, new { placeholder = "Enter your name" })
+    @Html.ValidationMessageFor(m => m.Town, "", new { })
+    <label>Town</label>
+    @Html.TextBoxFor(m => m.Rooms, new { placeholder = "Enter your name" })
+    @Html.ValidationMessageFor(m => m.Rooms, "", new { })
+    <label>Rooms</label>
+    @Html.TextBoxFor(m => m.Facilities, new { placeholder = "Enter your name" })
+    @Html.ValidationMessageFor(m => m.Facilities, "", new { })
+    <label>Facilities</label>
+    @Html.TextBoxFor(m => m.Price, new { placeholder = "Enter your name" })
+    @Html.ValidationMessageFor(m => m.Price, "", new { })
+    <label>Price</label>
+    @Html.TextBoxFor(m => m.PropertyName, new { placeholder = "Enter your name" })
+    @Html.ValidationMessageFor(m => m.PropertyName, "", new { })
+    <label>Property Name</label>
+    @Html.TextBoxFor(m => m.PropertyType, new { placeholder = "Enter your name" })
+    @Html.ValidationMessageFor(m => m.PropertyType, "", new { })
+    <label>Property Type</label>
+
+</div>
+
+    <div class="button">
+        <button type="submit" class="btn">Add</button>
+    </div>
+             
+}
+}

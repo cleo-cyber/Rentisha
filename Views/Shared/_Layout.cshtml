@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Kodisha</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+  
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/css/Shared.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <div class="navopacity">
+            <nav class="navi">
+                <div class="logo-container">
+                    <h2>Kodi</h2>
+                </div>
+                <ul class="navlink">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <li>Home</li>
+                    </a>
+                    <li class="prop">
+                        Properties
+                        <ul class="inner">
+                            <a asp-area="" asp-controller="Details" asp-action="Details">
+                            <li>Buy Property</li>
+                            </a>
+                            <a href="#">
+                            <li>Rent Property</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <a href="#">
+                    <li>About</li>
+                    </a>
+                    <a asp-area="" asp-controller="Contact" asp-action="Contactpage">
+                    <li>Contact</li>
+                    </a>
+                </ul>
+                <div class="btns">
+                    <a asp-area="" asp-controller="AddListings" asp-action="Newlisting"><Button class="addList">Add Listings</Button></a>
+                    <div class="reg">
+                        <a asp-area="" asp-controller="Account" asp-action="Login"><Button class="logihn">Login </Button></a>
+                        <a asp-area="" asp-controller="Account" asp-action="Registration"><Button class="sign">Sign-Up </Button></a>
+                    </div>
+
+                </div>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="foot">
+        <div class="myFooter">
+            <div class="logo_container">
+                <div class="logod">
+                    <h2>Kodi</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="links">
+                    <i class='bx bxl-facebook'></i>
+                    <i class='bx bxl-instagram'></i>
+                    <i class='bx bxl-twitter'></i>
+                </div>
+            </div>
+            <div class="menu">
+                <h3>Products</h3>
+                <ul>
+
+                    <a href="#">
+                    <li>Rentals</li></a>
+                    <a href="#">
+                    <li>For sale</li></a>
+
+                </ul>
+            </div>
+            <div class="menu">
+                <h3>Policy</h3>
+                <ul>
+                    <a href="#">
+                    <li>Privacy Policy</li></a>
+                    <a href="#">
+                    <li>Terms and Conditions</li></a>
+
+                </ul>
+            </div>
+
+        </div>
+ 
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
