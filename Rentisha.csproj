@@ -97,7 +97,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\Addlisting.css" />
     <Content Include="Content\css\Admin.css" />
+    <Content Include="Content\css\Details.css" />
     <Content Include="Content\css\Home.css" />
     <Content Include="Content\css\Listing.css" />
     <Content Include="Content\css\Shared.css" />
@@ -116,6 +118,8 @@
     <Content Include="Content\Js\addListing.js" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\Js\admin.js" />
+    <Content Include="Content\Js\Listing.js" />
+    <Content Include="Content\Js\Main.js" />
     <Content Include="Global.asax" />
     <Content Include="Models\Listings.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -132,6 +136,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Global.asax.cs">
@@ -173,6 +178,8 @@
     <Content Include="Views\Listing\AddListing.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
+    <Content Include="Views\Listing\ListingDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

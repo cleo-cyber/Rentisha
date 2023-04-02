@@ -14,6 +14,7 @@ namespace Rentisha.Controllers
         {
             return View();
         }
+
         public ActionResult AddListing()
         {
             return View();
@@ -28,5 +29,10 @@ namespace Rentisha.Controllers
             }
             return View();
         }
+        public ActionResult ListingDetail()
+        {
+            return View();
+        }
     }
+ 
 }

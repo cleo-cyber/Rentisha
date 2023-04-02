@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewBag.Title = "ListingDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/css/Details.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="welcometoDetails">
+       
+        <img src="~/Content/Images/house3.jpg" />
+        <div class="property">
+            <h2>Single Property </h2>
+            <p>Home / <span>Single Property</span></p>
+        </div>
+    </div>
+    <div class="proppurchase">
+        <div class="town">
+            <h2>125,Ongata Rongai</h2>
+            <p>Masai Lodge -Australia</p>
+        </div>
+        <div class="sale">
+            <p>For Sale</p>
+            <h2>$1234345</h2>
+        </div>
+    </div>
+    <div class="line"></div>
+
+    <div class="Info">
+
+        <div class="Info-1">
+            <h2>Gallery</h2>
+            <div class="mainshow">
+                <div id="detailsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <d
+                            <img src="~/Content/Images/house2.jpg" class="d-block w-100 " />
+                        </div>
+                        <div class="carousel-item c-item">
+                        
+                            <img src="~/Content/Images/Image2.png" class="d-block w-100" />
+                        </div>
+                        <div class="carousel-item c-item">
+                            
+                            <img src="~/Content/Images/Image1.png" class="d-block w-100" />
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#detailsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#detailsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="sideimg">
+                <div class="moreimgs">
+
+                    <img src="~/Content/Images/house1.jpg" />
+                </div>
+                <div class="moreimgs">
+                   
+
+                    <img src="~/Content/Images/Image1.png" />
+                </div>
+                <div class="moreimgs">
+                  
+                    <img src="~/Content/Images/house3.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="infodescription">
+
+            <div class="Info-2">
+                <h2>Description</h2>
+                <ul>
+                    <li>
+                        Location:
+                        <p><i class='bx bxs-building-house' style='color:#38393a'></i>Lang'ata</p>
+                        <div class="line"></div>
+                    </li>
+                    <li>
+                        Facilities:
+                        <p><i class='bx bxs-building-house' style='color:#38393a'></i> Sink</p>
+                    </li>
+                    <li>
+                        Rooms:
+                        <p><i class='bx bxs-building-house' style='color:#38393a'></i>N.o of rooms:1 bedroom</p>
+                        <div class="line"></div>
+                    </li>
+
+                </ul>
+                <div class="infofeature">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit molestiae nisi soluta eos, libero quis repellat deserunt eligendi iste unde perferendis consequatur nemo optio! Sequi exercitationem quibusdam eos quis error?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium vero obcaecati error distinctio voluptatem, nisi corporis iusto itaque praesentium vitae!</p>
+                </div>
+
+
+
+            </div>
+            <div class="features">
+                <h2>Features</h2>
+                <div class="featurecontainer">
+                    <ul class="feature-list">
+                        <li>Center Cooling</li>
+                        <li>Gym</li>
+                        <li>Fire Alarm</li>
+
+                    </ul>
+                    <ul class="feature-list">
+                        <li>Balcony</li>
+                        <li>Open plan Kitchen</li>
+                        <li>Elevator</li>
+
+                    </ul>
+                    <ul class="feature-list">
+                        <li>Pet friendly</li>
+                        <li>Laundry</li>
+                        <li>Dish Washer</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="featuredproperties">
+                <h2>Featured Properties</h2>
+                <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active c-item">
+                           
+                            <img src="~/Content/Images/house3.jpg" class="d-block w-100"/>
+                        </div>
+                        <div class="carousel-item c-item">
+                            
+                            <img src="~/Content/Images/Image1.png" class="d-block w-100"/>
+                        </div>
+                        <div class="carousel-item c-item">
+                        
+                            <img src="~/Content/Images/house3.jpg" class="d-block w-100" />
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="featuredits">
+                    <h2>House In Nairobi</h2>
+                    <p>Ongata Rongai,125</p>
+                    <p>$232343/mo</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

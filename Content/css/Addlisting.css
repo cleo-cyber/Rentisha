@@ -1,0 +1,141 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+#regForm {
+    background-color: #ffffff;
+    margin: 70px auto;
+    padding: 20px;
+    width: 90%;
+    min-width: 300px;
+}
+
+h2 {
+    padding: 10px 0;
+    color: #047192;
+}
+
+label {
+    font-size: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+}
+
+select option {
+    padding: 10px;
+}
+
+fieldset input {
+    width: 5%;
+}
+
+fieldset label {
+    width: 50%;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+legend {
+    font-size: 15px;
+    font-family: Raleway;
+}
+
+output {
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+    border-radius: 5px;
+}
+
+    output .image {
+        height: 150px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        position: relative;
+    }
+
+        output .image img {
+            height: 100%;
+            width: 100%;
+        }
+
+        output .image span {
+            position: absolute;
+            top: -4px;
+            right: 4px;
+            cursor: pointer;
+            font-size: 22px;
+            color: white;
+        }
+
+            output .image span:hover {
+                opacity: 0.8;
+            }
+
+    output .span--hidden {
+        visibility: hidden;
+    }
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+button {
+    background-color: #3c8fa8;
+    color: #ffffff;
+    border: none;
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+#prevBtn {
+    background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+    .step.active {
+        opacity: 1;
+    }
+
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+        background-color: #02799e;
+    }
