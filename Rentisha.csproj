@@ -180,6 +180,7 @@
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\Listing\ListingDetail.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
