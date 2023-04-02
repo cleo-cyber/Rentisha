@@ -1,113 +1,99 @@
 ﻿
 @{
+  
     Layout = null;
 }
+@model Rentisha.Models.Listing
 
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link href="~/Content/css/Addlisting.css" rel="stylesheet" />
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="~/Content/css/Addlisting.css" rel="stylesheet" />
+</head>
+
 <body>
 
-    <form id="regForm">
+    <div id="regForm">
         <h2>Add new listing</h2>
+        @using (Html.BeginForm("AddListing","Listing",FormMethod.Post))
+        {
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="tab">
+                <div class="row">
+                    <p>Please be as specific as possible</p>
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.PropertyName, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.PropertyName, new { @class = "form-control", @id = "propertyName", placeholder="e.g Giraffe Homes" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.County, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.County, new { @class = "form-control", @id = "city",placeholder="e.g Kajiado" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.Town, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.Town, new { @class = "form-control", @id = "area", placeholder="eg, Rongai"})
+                    </div>
+                    <div class="col-md-8">
+                        @Html.LabelFor(model => model.PropertyType, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Town, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(model => model.Rent, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Rent, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.Rooms, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Rooms, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.Price, new { @class = "form-label" })
+                    @Html.EditorFor(model => model.Price, new { @class = "form-control", @id = "txtExampleBoxOne" })
+                </div>
+
+
+            </div>
+            <div class="tab">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.Facilities, new { @class = "form-label" })
+                    @Html.TextBoxFor(model => model.Facilities, new { @class = "form-control", @id = "txtExampleBoxOne" })
+                </div>
+
+
+            </div>
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+              
+            </div>
+           
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
+        }
+
 
         <!-- One "tab" for each step in the form: -->
 
-        <div class="tab">
-            <div class="row">
-                <p>Please be as specific as possible</p>
-                <div class="col-md-6">
-                    <label for="propertyName" class="form-label">Property Name:</label>
-                    <input type="text" class="form-control" id="propertyName" placeholder="e.g. Giraffe Homes">
-                </div><div class="col-md-6">
-                    <label for="city" class="form-label">County:</label>
-                    <input type="text" class="form-control" id="city" placeholder="e.g. Kajiado">
-                </div>
-                <div class="col-md-6">
-                    <label for="area" class="form-label">Town/Area:</label>
-                    <input type="text" class="form-control" id="area" placeholder="e.g. Rongai">
-                </div>
-
-                <label for="PropertyType" class="form-label">Property Type:</label>
-                <div class="col-md-8">
-                    <select class="form-select form-select-sm">
-                        <option selected>choose type</option>
-                        <option value="1">Bedsitter</option>
-                        <option value="2">Studio apartment</option>
-                        <option value="3">Bungalow</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <select class="form-select form-select-sm">
-                        <option value="1" selected>Rent</option>
-                        <option value="2">Sale</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="rooms" class="form-label">Number of rooms:</label>
-                    <select class="form-select" disabled>
-                        <option selected>1</option>
-                        <option value="1">2</option>
-                        <option value="2">3</option>
-                        <option value="3">4</option>
-                    </select>
-                </div>
 
 
 
-            </div>
-        </div>
-        <div class="tab">
-            <div class="col-md-6">
-                <label for="price" class="form-label">Rent/Price:</label>
-                <input type="number" id="txtExampleBoxOne" value="" class="form-control" onBlur="formatCurrency(this, 'Ksh ', 'blur');" onkeyup="formatCurrency(this, 'Ksh ');" placeholder="in Ksh" />< br>
-                <label for="images" class="form-label">Please upload photos of the property</label>
-                <input type="file" name="upload" multiple="multiple" accept="image/jpeg, image/png, image/jpg" />
-                <output></output>
-            </div>
-        </div>
-        <div class="tab">
-            <fieldset>
-                <legend>Please check available amenities</legend>
-                <div class="row">
-                    <div class="col-md-8">
-
-                        <label for="amenity"> Swimming Pool</label><input type="checkbox" name="amenity" value="pool"> <br>
-
-                        <label for="amenity"> WI-FI</label><input type="checkbox" name="amenity" value="wifi"><br>
-
-                        <label for="amenity"> Rooftop access</label><input type="checkbox" name="amenity" value="rooftop"> <br>
-
-                        <label for="amenity"> Gym</label><input type="checkbox" name="amenity" value="gym"> <br>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="tab">
-            <label for="desc" class="form-label">Describe your property in more detail below</label>
-            <textarea rows="5" cols="60" name="description"></textarea><br>
-        </div>
-
-        <div style="overflow:auto;">
-            <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-            </div>
-        </div>
-        <!-- Circles which indicates the steps of the form: -->
-        <div style="text-align:center;margin-top:40px;">
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-        </div>
-    </form>
     </div>
+ 
 
     <script src="~/Content/Js/addListing.js"></script>
 </body>

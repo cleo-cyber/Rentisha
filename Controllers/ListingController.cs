@@ -20,13 +20,20 @@ namespace Rentisha.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+
         public ActionResult AddListing(Listing listing)
         {
-            if(ModelState.IsValid)
-            {
-               
-            }
+           
+                var db = new ListingEntities();
+                db.Listings.Add(listing);
+                db.SaveChanges();
+
+                Int64 id = listing.Id;
+                ViewBag.msg = "Listing successfully inserted with " + id + "";
+                ModelState.Clear();
+           
+            
+
             return View();
         }
         public ActionResult ListingDetail()

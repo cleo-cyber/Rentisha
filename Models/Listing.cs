@@ -34,7 +34,7 @@ namespace Rentisha.Models
 
 
         [Required]
-       
+        
         public string Facilities { get; set; }
 
 
@@ -55,5 +55,7 @@ namespace Rentisha.Models
      
         [DisplayName("Property Type")]
         public string PropertyType { get; set; }
+
+        public string Rent { get; set; }
     }
 }
