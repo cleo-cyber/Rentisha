@@ -6,70 +6,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/css/Listing.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <title>Listing</title>
 </head>
 <body>
-    <section id="oneBedrooms">
-        <div class="Intro_Note">
-            <h2>Available apartments for rent</h2>
-        </div>
-        <h2 class="oneB">One Bedrooms</h2>
-        <div class="slide_container reveal">
+    <section>
+        <div class="welcome-section">
+            <div class="section1">
+                <h1>OUR LISTINGS</h1>
+                <small>Kodisha> <span>Listings</span> </small>
+            </div>
+            <div class="filter-form">
+                <form action="#">
+                    <input type="search" name="Search" placeholder="Enter Keyword...">
 
-            
-            <div class="slide">
-              
-                <img src="~/Content/Images/house2.jpg" />
-                <h3>1 bedroom in Langata</h3>
-                <h4>$ 23345/mo</h4>
-            </div>
-            <div class="slide">
-               
-                <img src="~/Content/Images/house1.jpg" />
-                <h3>1 bedroom in Langata</h3>
-                <h4>$ 23345/mo</h4>
-            </div>
-            <div class="slide">
-              
-                <img src="~/Content/Images/house2.jpg" />
-                <h3>1 bedroom in Langata</h3>
-                <h4>$ 23345/mo</h4>
-            </div>
-            <div class="slide">
-                
-                <img src="~/Content/Images/house3.jpg" />
-                <h3>1 bedroom in Langata</h3>
-                <h4>$ 23345/mo</h4>
-            </div>
-            <div class="slide">
-               
-                <img src="~/Content/Images/house2.jpg" />
-                <h3>1 bedroom in Langata</h3>
-                <h4>$ 23345/mo</h4>
+                    <div class="selects">
+                        <select>
+                            <option selected>Choose type</option>
+                            <option value="1">Bedsitter</option>
+                            <option value="">1 Bedrooom</option>
+                            <option value="3">2 Bedrooom</option>
+                        </select>
+                        <select>
+                            <option selected>Choose location</option>
+                            <option value="1">Nairobi</option>
+                            <option value="2">Eldoret</option>
+                            <option value="3">Nakuru</option>
+                        </select>
+                        <select>
+                            <option selected>Choose type</option>
+                            <option value="1">Bedsitter</option>
+                            <option value="">1 Bedrooom</option>
+                            <option value="3">2 Bedrooom</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Search Now</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <section id="TwoBedrooms">
-        <h2 class="other">Other Listings</h2>
-        <div class="wrapper reveal">
+    <section>
+        <div class="card-section">
+            <div class="card">
+                <div class="img-container">
+                    
+                    <img src="~/Content/Images/Image2.png" />
+                </div>
+                <div class="rent">
+                    <small>Rent</small>
+                    <h2>$342323</h2>
+                </div>
+                <div class="proprName">
+                    <h2>Olive Tree</h2>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
 
-            <div class="carousel ">
-                <div class="slidees"></div>
-                <img src="~/Content/Images/house1.jpg" />
-                <img src="~/Content/Images/house1.jpg" />
-                <img src="~/Content/Images/house1.jpg" />
-                <img src="~/Content/Images/house1.jpg" />
-                <img src="~/Content/Images/house1.jpg" />
+                        </div>
 
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small>2 baths</small>
+
+                        </div>
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
+            <div class="card">
+                <div class="img-container">
+                   
+                    <img src="~/Content/Images/house2.jpg" />
 
+                </div>
+                <div class="rent">
+                    <small>Rent</small>
+                    <h2>$342323</h2>
+                </div>
+                <div class="proprName">
+                    <h2>Olive Tree</h2>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
+
+                        </div>
+
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small>2 baths</small>
+
+                        </div>
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    
+                    <img src="~/Content/Images/house1.jpg" />
+                </div>
+                <div class="rent">
+                    <small>Rent</small>
+                    <h2>$342323</h2>
+                </div>
+                <div class="proprName">
+                    <h2>Olive Tree</h2>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
+
+                        </div>
+
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small>2 baths</small>
+
+                        </div>
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                 
+                    <img src="~/Content/Images/Image1.png" />
+                </div>
+                <div class="rent">
+                    <small>Rent</small>
+                    <h2>$342323</h2>
+                </div>
+                <div class="proprName">
+                    <h2>Olive Tree</h2>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
+
+                        </div>
+
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small>2 baths</small>
+
+                        </div>
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                   
+                    <img src="~/Content/Images/house2.jpg" />
+                </div>
+                <div class="rent">
+                    <small>Rent</small>
+                    <h2>$342323</h2>
+                </div>
+                <div class="proprName">
+                    <h2>Olive Tree</h2>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
+
+                        </div>
+
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small>2 baths</small>
+
+                        </div>
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                   
+                    <img src="~/Content/Images/bg1.png" />
+                </div>
+                <div class="rent">
+                    <small>Rent</small>
+                    <h2>$342323</h2>
+                </div>
+                <div class="proprName">
+                    <h2>Olive Tree</h2>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
+
+                        </div>
+
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small>2 baths</small>
+
+                        </div>
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
     </section>
-  
-    <script src="~/Content/Js/Listing.js"></script>
+    <div class="pagination">
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
 </body>
 </html>
 

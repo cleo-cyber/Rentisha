@@ -263,10 +263,11 @@ p {
         display: flex;
         flex-direction: column;
         margin-bottom: 10vh;
-        transform: translateY(-100vw);
+        transform: translateX(-100vw);
         position: fixed;
         animation: fade 1s linear;
         position: absolute;
+        transition: all 300ms ease-in-out;
     }
 
     .btns {
@@ -279,7 +280,7 @@ p {
 
     .navlink.open-nav {
         display: flex;
-        transition: 0.4s ease-in-out;
+     
         transform: translateX(0vw);
         position: relative;
     }
