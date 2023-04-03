@@ -24,7 +24,21 @@ namespace Rentisha.Controllers
         public ActionResult AddListing(Listing listing)
         {
            
-                var db = new ListingEntities();
+            ListingEntities db=new ListingEntities();
+
+               if(ModelState.IsValid)
+            {
+                listing.Id = db.Listings.Any() ? db.Listings.Max(l => l.Id) + 1 : 1;
+                db.Listings.Add(listing);
+                try
+                {
+                   db.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
                 db.Listings.Add(listing);
                 db.SaveChanges();
 
@@ -34,7 +48,7 @@ namespace Rentisha.Controllers
            
             
 
-            return View();
+            return View(listing);
         }
         public ActionResult ListingDetail()
         {
