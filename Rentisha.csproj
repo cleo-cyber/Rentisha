@@ -118,6 +118,7 @@
     <Content Include="Content\Js\addListing.js" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\Js\admin.js" />
+    <Content Include="Content\Js\Autohide.js" />
     <Content Include="Content\Js\Listing.js" />
     <Content Include="Content\Js\Main.js" />
     <Content Include="Global.asax" />
@@ -139,6 +140,8 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
+    <Compile Include="Controllers\PropertiesController.cs" />
+    <Compile Include="DAL\Property_DAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +163,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Listings.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Properties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,13 +178,14 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Listing\RentListings.cshtml" />
     <Content Include="Views\Listing\AddListing.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\Listing\ListingDetail.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Properties\DisplayListing.cshtml" />
+    <Content Include="Views\Properties\AddProperty.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

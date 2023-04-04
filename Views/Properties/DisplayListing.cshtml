@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Rentisha.Models.Properties>
+
+@{
+    ViewBag.Title = "DisplayListing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/css/Listing.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <title>Listing</title>
+</head>
+<body>
+    <section>
+        <div class="welcome-section">
+            <div class="section1">
+                <h1>OUR LISTINGS</h1>
+                <small>Kodisha> <span>Listings</span> </small>
+            </div>
+            <div class="filter-form">
+                <form action="#">
+                    <input type="search" name="Search" placeholder="Enter Keyword...">
+
+                    <div class="selects">
+                        <select>
+                            <option selected>Choose type</option>
+                            <option value="1">Bedsitter</option>
+                            <option value="">1 Bedrooom</option>
+                            <option value="3">2 Bedrooom</option>
+                        </select>
+                        <select>
+                            <option selected>Choose location</option>
+                            <option value="1">Nairobi</option>
+                            <option value="2">Eldoret</option>
+                            <option value="3">Nakuru</option>
+                        </select>
+                        <select>
+                            <option selected>Choose type</option>
+                            <option value="1">Bedsitter</option>
+                            <option value="">1 Bedrooom</option>
+                            <option value="3">2 Bedrooom</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Search Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    @if (TempData["InfoMessage"] != null)
+    {
+        <div class="alert alert-info">
+            <strong>Information:</strong>  @TempData["InfoMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span>&times;</span>
+            </button>
+        </div>
+
+    }
+    else if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            <strong>Success:</strong>  @TempData["SuccessMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span>&times;</span>
+            </button>
+        </div>
+
+    }
+    else if (TempData["ErroMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error:</strong>  @TempData["ErroMessage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span>&times;</span>
+            </button>
+        </div>
+
+    }
+    <div class="card-section">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="img-container">
+
+                    <img src="~/Content/Images/Image2.png" />
+                </div>
+                <div class="rent">
+                    <small> @Html.DisplayFor(modelItem => item.PropertyType)</small>
+                    <h2>  @Html.DisplayFor(modelItem => item.Rent)</h2>
+                </div>
+                <div class="proprName">
+                    <h2> @Html.DisplayFor(modelItem => item.PropertyName)</h2>
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
+
+                        </div>
+
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small> @Html.DisplayFor(modelItem => item.Rooms) Rooms</small>
+
+                        </div>
+                        <div class="subfeature">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+    </div>
+    <div class="pagination">
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+    <script src="~/Content/Js/Autohide.js"></script>
+</body>
+</html>
+
+
+  

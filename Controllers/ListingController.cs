@@ -10,10 +10,7 @@ namespace Rentisha.Controllers
     public class ListingController : Controller
     {
         // GET: Listing
-        public ActionResult RentListings()
-        {
-            return View();
-        }
+   
 
         public ActionResult AddListing()
         {
