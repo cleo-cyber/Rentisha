@@ -119,6 +119,7 @@
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\Js\admin.js" />
     <Content Include="Content\Js\Autohide.js" />
+    <Content Include="Content\Js\Details.js" />
     <Content Include="Content\Js\Listing.js" />
     <Content Include="Content\Js\Main.js" />
     <Content Include="Global.asax" />
@@ -138,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\PropertiesController.cs" />
@@ -186,6 +188,7 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Properties\DisplayListing.cshtml" />
     <Content Include="Views\Properties\AddProperty.cshtml" />
+    <Content Include="Views\Details\DetailsListing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
