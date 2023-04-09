@@ -115,6 +115,7 @@
     <Content Include="Content\Images\post2.png" />
     <Content Include="Content\Images\rectangle_ek2.png" />
     <Content Include="Content\Images\rectangle_ek4.png" />
+    <Content Include="Content\Images\Reg.jpg" />
     <Content Include="Content\Js\addListing.js" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\Js\admin.js" />
@@ -122,6 +123,7 @@
     <Content Include="Content\Js\Details.js" />
     <Content Include="Content\Js\Listing.js" />
     <Content Include="Content\Js\Main.js" />
+    <Content Include="Content\css\Registration.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\Listings.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -133,6 +135,16 @@
       <DependentUpon>Listings.edmx</DependentUpon>
       <LastGenOutput>Listings.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Registration.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Registration.edmx</DependentUpon>
+      <LastGenOutput>Registration.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Registration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Registration.edmx</DependentUpon>
+      <LastGenOutput>Registration.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +155,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\PropertiesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\Property_DAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,6 +179,24 @@
       <DependentUpon>Listings.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Properties.cs" />
+    <Compile Include="Models\Registration.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Registration.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Registration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Registration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Registration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Registration.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Registration.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +207,13 @@
     </EntityDeploy>
     <Content Include="Models\Listings.edmx.diagram">
       <DependentUpon>Listings.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Registration.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Registration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Registration.edmx.diagram">
+      <DependentUpon>Registration.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -189,6 +227,7 @@
     <Content Include="Views\Properties\DisplayListing.cshtml" />
     <Content Include="Views\Properties\AddProperty.cshtml" />
     <Content Include="Views\Details\DetailsListing.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
