@@ -1,136 +1,152 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Rentisha.Models;
-using System.Security.Cryptography;
-using System.Text;
-
 namespace Rentisha.Controllers
 {
     public class UserController : Controller
     {
+        //Registration
 
-        KodishaEntities db= new KodishaEntities();
-        // GET: User
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        [HttpGet]
         public ActionResult Registration()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Registration(User user) 
-        {
 
-
-            db.Users.Add(user);
-            db.SaveChanges();
-        return View();
-        }
-
-
-        public void GenerateHash(User user)
-        {
-            var userPass = user.Password1;
-            using(var hash=new System.Security.Cryptography.HMACSHA512())
-            {
-                byte[] hashPass = hash.ComputeHash(Encoding.UTF8.GetBytes(userPass));
-                byte[] salt = hash.Key;
-            }
-
-        }
-        public ActionResult Login()
-        {
-            return View();
-        }
+        //Registration POST
 
         [HttpPost]
-
-        public ActionResult Login(User user)
+        [ValidateAntiForgeryToken]
+        public ActionResult Registration([Bind(Exclude = "isEmailVerified,ActivationCode")] User user)
         {
-            var log = db.Users.Where(a => a.Username.Equals(user.Username) && a.Password1.Equals(user.Password1)).FirstOrDefault();
-            if (log != null)
+
+            bool Status = false;
+            string Message = "";
+
+            //Model Validity
+            if(ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Home");
+                //Email exists or not
+                var isExist = isEmailExist(user.EmailId);
+                if (isExist)
+                {
+                    ModelState.AddModelError("EmailExists", "Email Already Exist");
+                    return View(user);
+                }
+                //End Email Validation
+
+                //Generate Activation Code
+                user.ActivationCode = Guid.NewGuid();
+                //End Generation
+
+                //Password Hashing
+
+                user.Password=Crypto.Hash(user.Password);
+                user.ConfirmPassword=Crypto.Hash(user.ConfirmPassword);
+
+                //End Hashing
+
+                //Verify Email
+
+                user.isEmailVerified = false;
+
+
+                //Save to db
+                using (KodishaEntities1 dc = new KodishaEntities1())
+                {
+                    dc.Users.Add(user);
+                    dc.SaveChanges();
+
+
+                    //Send Email to user
+                    sendVerification(user.EmailId, user.ActivationCode.ToString());
+                    Message = "Registration successfull Account activation link has been send to you email"+user.EmailId;
+                    Status=true;
+                }
+
             }
-            return View();
-        }
-        // GET: User/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: User/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: User/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            else
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                Message = "Invalid Request";
             }
-            catch
+            ViewBag.Message=Message;
+            ViewBag.Status=Status;
+ 
+
+
+            
+
+
+
+
+
+
+            return View(user);
+        }
+
+
+
+
+
+        //Login
+
+
+
+        //Login Post
+
+
+
+        //Logout
+
+        [NonAction]
+
+        public bool isEmailExist (string EmailID)
+        {
+            
+            using(KodishaEntities1 dc=new KodishaEntities1())
             {
-                return View();
+                var v=dc.Users.Where(a=>a.EmailId== EmailID).FirstOrDefault();
+                return v !=null;
             }
         }
 
-        // GET: User/Edit/5
-        public ActionResult Edit(int id)
+        [NonAction]
+
+        public void sendVerification(string EmailId,string activationCode)
         {
-            return View();
-        }
+            var verifyUrl = "/User/VerifyAccount/" + activationCode;
+            var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
-        // POST: User/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            var fromEmail=new MailAddress("classde979@gmail.com","Kodisha");
+            var toEmail = new MailAddress(EmailId);
+            var fromEmailPassword = "GodIsGood";
+            string subject = "Your account is Succesfully created";
+            var body = "<br/><br/> Kodisha account created succesfully " + "Click on the link below to verify your account" + "<a href='" + link + "'>" + link +link+"</a>";
+
+            var smtp = new SmtpClient
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryFormat = (SmtpDeliveryFormat)SmtpDeliveryMethod.Network,
+                UseDefaultCredentials= false,
+                Credentials=new NetworkCredential(fromEmail.Address, "romhckyswlsmfkwz")
+            };
+            using (var Message = new MailMessage(fromEmail, toEmail)
             {
-                return View();
-            }
-        }
-
-        // GET: User/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: User/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+                Subject = subject,
+                Body = body,
+                IsBodyHtml= true
+            }) 
+                smtp.Send(Message);
         }
     }
+
+
 }

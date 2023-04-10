@@ -63,7 +63,7 @@ body {
     gap: 1rem;
 }
 
-form {
+.form {
     flex: 2;
     display: flex;
     flex-direction: column;
@@ -74,13 +74,13 @@ form {
     width: 40vw;
 }
 
-    form h2 {
+    .form h2 {
         text-align: center;
         text-transform: uppercase;
         font-size: 2vw;
     }
 
-    form .input {
+    .form .input {
         padding: 1.5vh 2vw;
         font-size: 1.1rem;
         background-color: inherit;
