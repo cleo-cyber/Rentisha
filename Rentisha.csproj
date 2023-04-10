@@ -230,6 +230,7 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>RegModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +267,8 @@
     <Content Include="Views\Details\DetailsListing.cshtml" />
     <Content Include="Views\User\Registration.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\User\VerifyAccount.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

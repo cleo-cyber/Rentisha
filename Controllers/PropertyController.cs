@@ -9,6 +9,7 @@ namespace Rentisha.Controllers
     public class PropertyController : Controller
     {
         // GET: Property
+        [Authorize]
         public ActionResult Index()
         {
             return View();

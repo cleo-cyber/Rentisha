@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Rentisha.Models;
 namespace Rentisha.Controllers
 {
@@ -92,17 +93,101 @@ namespace Rentisha.Controllers
 
 
 
+        //verify account
 
+        [HttpGet]
+        public ActionResult VerifyAccount(string id)
+        {
+            bool Status = false;
+            using(KodishaEntities1 dc=new KodishaEntities1())
+            {
+                
+                dc.Configuration.ValidateOnSaveEnabled = false;//To avoid password do not match error
+                //Get activationcode
+                var v=dc.Users.Where(a=>a.ActivationCode==new Guid(id)).FirstOrDefault();
+                if (v!=null)
+                {
+                    v.isEmailVerified=true;
+                    dc.SaveChanges();
+                    Status=true;
+                }
+                else
+                {
+                    ViewBag.Message = "Invalid Request";
+                }
+
+            }
+            ViewBag.Status = true;
+            return View(); 
+        }
 
         //Login
-
-
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
 
         //Login Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(UserLogin login,string ReturnUrl)
+        {
+        
+                string Message = "";
+                ViewBag.Message= Message;
+            
+            using(KodishaEntities1 dc=new KodishaEntities1())
+            {
+                var v=dc.Users.Where(a=>a.EmailId==login.EmailId).FirstOrDefault();
+                if(v != null)
+                {
+                    //Compare passwords
+                    if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
+                    {
+                        //Cookie creation
+                        int timeout = login.RememberMe ? 525600 : 20;
+                        var ticket = new FormsAuthenticationTicket(login.EmailId,login.RememberMe,timeout);
+                        string Encrypted=FormsAuthentication.Encrypt(ticket);
+                        var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, Encrypted);
+                        cookie.Expires = DateTime.Now.AddMinutes(timeout);
+                        cookie.HttpOnly= true;
+                        Response.Cookies.Add(cookie);
+
+                        if (Url.IsLocalUrl(ReturnUrl))
+                        {
+                            return Redirect(ReturnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Property");
+                        }
+                    }
+                    else
+                    {
+                        Message = "Invalid Credentials";
+                    }
+                }
+                else
+                {
+                    Message = "Invalid Credentials";
+                }
+            }
+
+    
+            return View();
+        }
 
 
 
         //Logout
+        [Authorize]
+        [HttpPost]
+        public ActionResult logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "User");
+        }
 
         [NonAction]
 
