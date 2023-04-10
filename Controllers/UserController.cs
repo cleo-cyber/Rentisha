@@ -125,7 +125,7 @@ namespace Rentisha.Controllers
 
             var fromEmail=new MailAddress("classde979@gmail.com","Kodisha");
             var toEmail = new MailAddress(EmailId);
-            var fromEmailPassword = "GodIsGood";
+            //var fromEmailPassword = "GodIsGood";
             string subject = "Your account is Succesfully created";
             var body = "<br/><br/> Kodisha account created succesfully " + "Click on the link below to verify your account" + "<a href='" + link + "'>" + link +link+"</a>";
 
