@@ -231,6 +231,9 @@
     <Content Include="Views\Property\Index.cshtml" />
     <Content Include="Views\User\VerifyAccount.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Property\AddListings.cshtml" />
+    <Content Include="Views\Property\Listings.cshtml" />
+    <Content Include="Views\Property\EditListing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
