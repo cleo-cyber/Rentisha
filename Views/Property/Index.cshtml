@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Rentisha.Models.Property>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -108,59 +108,41 @@
 
     <!-- Popular listings -->
     <section id="popular">
-
         <div class="welcomePopular">
             <h1>Popular Properties</h1>
 
         </div>
-        <div class="listings">
-            <div class="listing">
+        @foreach (var item in Model)
+        {
+            <div class="listings">
+                <div class="listing">
 
-                <img src="~/Content/Images/house2.jpg" />
-                <div class="listDetail">
-                    <h3>$40,345</h3>
-                    <div class="line"></div>
-                    <small>Ongata Rongai,125</small>
-                    <h4>Nariobi,Kenya</h4>
-                    <div class="h-dits">
-                        <p>1 Bed<i class='bx bx-bed' style='color:#176677'></i></p>
-                        <p>2 Tubs<i class='bx bx-bath' style='color:#176677'></i></p>
+                    <img src="@Url.Content(item.Image)" />
+                    <div class="listDetail">
+                        <h3>   @Html.DisplayFor(modelItem => item.Price)</h3>
+                        <div class="line"></div>
+                        <small>   @Html.DisplayFor(modelItem => item.Town)</small>
+                        <h4>   @Html.DisplayFor(modelItem => item.County)</h4>
+                        <div class="h-dits">
+                            <p>  @Html.DisplayFor(modelItem => item.Beds)<i class='bx bx-bed' style='color:#176677'></i></p>
+                            <p>2 Tubs<i class='bx bx-bath' style='color:#176677'></i></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="listing">
-
-                <img src="~/Content/Images/house1.jpg" />
-                <div class="listDetail">
-                    <h3>$40,345</h3>
-                    <div class="line"></div>
-                    <small>Ongata Rongai,125</small>
-                    <h4>Nariobi,Kenya</h4>
-                    <div class="h-dits">
-                        <p>1 Bed<i class='bx bx-bed' style='color:#176677'></i></p>
-                        <p>2 Tubs<i class='bx bx-bath' style='color:#176677'></i></p>
-                    </div>
                 </div>
-            </div>
-            <div class="listing">
+                }
 
-                <img src="~/Content/Images/house3.jpg" />
-                <div class="listDetail">
-                    <h3>$40,345</h3>
-                    <div class="line"></div>
-                    <small>Ongata Rongai,125</small>
-                    <h4>Nariobi,Kenya</h4>
-                    <div class="h-dits">
-                        <p>1 Bed<i class='bx bx-bed' style='color:#176677'></i></p>
-                        <p>2 Tubs<i class='bx bx-bath' style='color:#176677'></i></p>
-                    </div>
-                </div>
+
+
+
+
+              
+            <div class="viewmore">
+                <Button class="btn " onclick="location.href=" @Url.Action("Listings", "Property") ">
+                    @Html.ActionLink("View All Properties", "Listings", "Property")
+                </Button>
             </div>
-        </div>
-        <div class="viewmore">
-            <Button class="btn " onclick="location.href='Listing/RentListings'">View All Properties</Button>
-        </div>
-    </section>
+        </section>
 
     <section id="reality">
         <div class="realitytext">

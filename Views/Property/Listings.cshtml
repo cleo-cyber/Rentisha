@@ -4,80 +4,97 @@
     ViewBag.Title = "Listings";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/css/Listing.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<section>
+    <div class="welcome-section">
+        <div class="section1">
+            <h1>OUR LISTINGS</h1>
+            <small>Kodisha> <span>Listings</span> </small>
+        </div>
+        <div class="filter-form">
+            <form action="#">
+                <input type="search" name="Search" placeholder="Enter Keyword...">
 
-<h2>Listings</h2>
+                <div class="selects">
+                    <select>
+                        <option selected>Choose type</option>
+                        <option value="1">Bedsitter</option>
+                        <option value="">1 Bedrooom</option>
+                        <option value="3">2 Bedrooom</option>
+                    </select>
+                    <select>
+                        <option selected>Choose location</option>
+                        <option value="1">Nairobi</option>
+                        <option value="2">Eldoret</option>
+                        <option value="3">Nakuru</option>
+                    </select>
+                    <select>
+                        <option selected>Choose type</option>
+                        <option value="1">Bedsitter</option>
+                        <option value="">1 Bedrooom</option>
+                        <option value="3">2 Bedrooom</option>
+                    </select>
+                </div>
 
-<p>
-    @Html.ActionLink("AddListings", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PropertyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.County)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Town)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Amenities)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
-        </th>
-        <th></th>
-    </tr>
+                <button type="submit">Search Now</button>
+            </form>
+        </div>
+    </div>
+</section>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PropertyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.County)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Town)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amenities)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
-        <td>
-            <a href="@Url.Action("EditListing", "Property", new { property_id = item.PropertyId })">Edit</a>
-            |
-            @Html.ActionLink("Details", "Details", new { id = item.PropertyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.PropertyId })
-        </td>
-    </tr>
-}
+<div class="card-section">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="img-container">
 
-</table>
+                <img src="@Url.Content(item.Image)" />
+            </div>
+            <div class="rent">
+                <small>   @Html.DisplayFor(modelItem => item.Status)</small>
+                <h2>      @Html.DisplayFor(modelItem => item.Price)</h2>
+            </div>
+            <div class="proprName">
+                <h2>  @Html.DisplayFor(modelItem => item.PropertyName)</h2>
+            </div>
+            <div class="proprName">
+                <h2>  @Html.DisplayFor(modelItem => item.County)</h2>
+            </div>
+            <div class="proprName">
+                <h2>  @Html.DisplayFor(modelItem => item.Town)</h2>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="subfeature">
+                        <span class="material-icons-sharp">bed</span>
+                        <small>  @Html.DisplayFor(modelItem => item.Beds) Beds</small>
+
+                    </div>
+
+                    <div class="subfeature">
+                        <span class="material-icons-sharp">bathtub</span>
+                        <small>   @Html.DisplayFor(modelItem => item.Rooms) Rooms</small>
+
+                    </div>
+                    <div class="subfeature">
+                        <span class="material-icons-sharp">open_with</span>
+                        <small>1200 sqft</small>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    }
+</div>
+<div class="pagination">
+    <span class="active">1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+</div>
+
+
+<script src="~/Content/Js/Autohide.js"></script>

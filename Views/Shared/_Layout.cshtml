@@ -20,29 +20,33 @@
                     <h2>Kodi</h2>
                 </div>
                 <ul class="navlink">
-                    <a href="#">
-                    <li>Home</li>
-                    </a>
+                   
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Property")
+                    </li>
+                  
                     <li class="prop">
                         Properties
                         <ul class="inner">
-                            <a href="#"
-                            <li>Buy Property</li>
-                            </a>
-                            <a href="#">
+                           
+                            <li>
+                                @Html.ActionLink("Listings", "Listings", "Property")
+                            </li>
+                          
+                        
                             <li>Rent Property</li>
-                            </a>
+                        
                         </ul>
                     </li>
-                    <a href="#">
+                 
                     <li>About</li>
-                    </a>
-                    <a href="#">
+                 
+
                     <li>Contact</li>
-                    </a>
+                   
                 </ul>
                 <div class="btns">
-                    <Button class="addList" onclick="location.href='Listing/AddListing'">Add Listings</Button>
+                    <Button class="addList">@Html.ActionLink("Add Listing","AddListings","Property")</Button>
                     <div class="reg">
                         <Button class="logihn">Login </Button>
                         <Button class="sign">Sign-Up </Button>

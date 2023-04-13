@@ -11,7 +11,9 @@ namespace Rentisha.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
     public partial class Property
     {
         public int PropertyId { get; set; }
@@ -21,8 +23,17 @@ namespace Rentisha.Models
         public int Price { get; set; }
         public string Status { get; set; }
         public string Description { get; set; }
+        [DisplayName("Upload file")]
         public string Image { get; set; }
         public string Amenities { get; set; }
-        public Nullable<int> UserId { get; set; }
+        [ForeignKey("User")]
+        public  int UserId { get; set; }
+        public virtual User User { get; set; }
+
+        public int Rooms { get; set; }
+
+        public int Beds { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.IO;
 namespace Rentisha.Controllers
 {
     public class PropertyController : Controller
@@ -14,7 +15,14 @@ namespace Rentisha.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+
+            var prop = new Property();
+            using(KodishaEntities2 dc=new KodishaEntities2())
+            {
+                var recent=dc.Properties.OrderByDescending(p=>p.PropertyId).Take(3).ToList();
+                return View(recent);
+            }
+           
         }
 
         [HttpGet]
@@ -29,6 +37,7 @@ namespace Rentisha.Controllers
          
         }
 
+
         public ActionResult AddListings()
         {
 
@@ -42,13 +51,27 @@ namespace Rentisha.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddListings(Property prop)
         {
+            if (prop.ImageFile != null)
+            {
+
+                string fileName = Path.GetFileNameWithoutExtension(prop.ImageFile.FileName);
+                string extension = Path.GetExtension(prop.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension; //Add date time to avoid duplicate file names
+                prop.Image = "~/ListingImage/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/ListingImage/") + fileName);
+                prop.ImageFile.SaveAs(fileName);
+            }
+            
+
             if(ModelState.IsValid)
             {
-                using(KodishaEntities2 dc=new KodishaEntities2())
+                prop.UserId = 1;
+                using (KodishaEntities2 dc=new KodishaEntities2())
                 {
                     dc.Properties.Add(prop);
                     dc.SaveChanges();
                 }
+                ModelState.Clear();
             }
             return View();
         }
