@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Data.Entity.Core.Metadata.Edm;
+
 namespace Rentisha.Controllers
 {
     public class PropertyController : Controller
@@ -77,9 +79,21 @@ namespace Rentisha.Controllers
         }
 
 
-        public ActionResult ListingDetail()
+        public ActionResult ListingDetail( int prop_id)
         {
-            return View();
+            using (KodishaEntities2 dc = new KodishaEntities2())
+            {
+                Property prop = dc.Properties.Find(prop_id);
+                if (prop != null)
+                {
+                    return View(prop);
+                }
+                else
+                {
+                    ViewBag.Message = "Property not found";
+                }
+            }
+                return View();
         }
         [HttpGet]
         public ActionResult EditListing(int property_id) 
@@ -125,5 +139,7 @@ namespace Rentisha.Controllers
 
             return View();
         }
+
+        
     }
 }

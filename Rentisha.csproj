@@ -233,6 +233,7 @@
     <Content Include="Views\Property\AddListings.cshtml" />
     <Content Include="Views\Property\Listings.cshtml" />
     <Content Include="Views\Property\EditListing.cshtml" />
+    <Content Include="Views\Property\ListingDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
