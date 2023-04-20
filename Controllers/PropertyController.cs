@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.IO;
+
 namespace Rentisha.Controllers
 {
     public class PropertyController : Controller
@@ -81,6 +81,7 @@ namespace Rentisha.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult EditListing(int property_id) 
         {
