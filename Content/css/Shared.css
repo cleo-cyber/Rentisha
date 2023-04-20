@@ -25,6 +25,7 @@
 }
 body {
     background: var(--color-background);
+    font-family: 'Noto Serif', serif;
 }
 
 h1 {
@@ -65,6 +66,7 @@ p {
     background-color: aliceblue;
     width: 100%;
     opacity: 1;
+    font-size: 20px;
 }
 
 

@@ -103,6 +103,7 @@
     </Content>
     <Content Include="Content\css\Addlisting.css" />
     <Content Include="Content\css\Admin.css" />
+    <Content Include="Content\css\Credentials.css" />
     <Content Include="Content\css\Details.css" />
     <Content Include="Content\css\Home.css" />
     <Content Include="Content\css\Listing.css" />
@@ -129,16 +130,6 @@
     <Content Include="Content\Js\Main.js" />
     <Content Include="Content\css\Registration.css" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Listings.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Listings.edmx</DependentUpon>
-      <LastGenOutput>Listings.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Listings.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Listings.edmx</DependentUpon>
-      <LastGenOutput>Listings.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\ListModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ListModel.edmx</DependentUpon>
@@ -167,7 +158,6 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Crypto.cs" />
@@ -175,24 +165,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Extended\User.cs" />
-    <Compile Include="Models\Listing.cs">
-      <DependentUpon>Listings.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Listings.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Listings.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Listings.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Listings.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Listings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Listings.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ListModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,13 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\Listings.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Listings.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Listings.edmx.diagram">
-      <DependentUpon>Listings.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\RegModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RegModel.Designer.cs</LastGenOutput>
@@ -259,16 +224,18 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Listing\AddListing.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
-    <Content Include="Views\Listing\ListingDetail.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Details\DetailsListing.cshtml" />
     <Content Include="Views\User\Registration.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
     <Content Include="Views\User\VerifyAccount.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Property\AddListings.cshtml" />
+    <Content Include="Views\Property\Listings.cshtml" />
+    <Content Include="Views\Property\EditListing.cshtml" />
+    <Content Include="Views\Property\DeleteListing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

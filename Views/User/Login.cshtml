@@ -1,4 +1,4 @@
-﻿ q @model Rentisha.Models.UserLogin
+﻿@model Rentisha.Models.UserLogin
 
 @{
     Layout = null;
@@ -10,6 +10,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
+    <link href="~/Content/css/Credentials.css" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -21,46 +25,36 @@
     {
         @Html.AntiForgeryToken()
         
-        <div class="form-horizontal">
-            <h4>UserLogin</h4>
-            <hr />
+       
+          
+           
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.RememberMe)
-                        @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
+<div class="detailsForm">
+    <div class="form-group">
+        <h3 class="form-title">Login</h3>
+        <h4>Welcome back!</h4>
+        @Html.LabelFor(model => model.EmailId, "Email Address:", htmlAttributes: new { @class = "control-label col-md-4" })
+
+
+        @Html.EditorFor(model => model.EmailId, "Email Address:", new { htmlAttributes = new { @class = "form-control input" } })
+
+        @Html.LabelFor(model => model.Password, "Password:", htmlAttributes: new { @class = "control-label col-md-2" })
+
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control input" } })
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    </div>
+
+
+    <button type="submit" class="Loginbtn">Login</button>
+    <span>Don't have an account? </span>@Html.ActionLink("Register Now", "Registration", "User")
+
+
+
+</div>
+                
+
     }
     
-    <div>
-        @Html.ActionLink("Register Now", "Registration","User")
-    </div>
+    
 </body>
 </html>
