@@ -46,7 +46,7 @@
 <div class="card-section">
     @foreach (var item in Model)
     {
-        <div class="card">
+        <div class="card" onclick="location.href='@Url.Action("ListingDetail","Property", new {prop_id=item.PropertyId})'">
             <div class="img-container">
 
                 <img src="@Url.Content(item.Image)" />

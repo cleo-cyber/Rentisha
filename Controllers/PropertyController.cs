@@ -44,7 +44,7 @@ namespace Rentisha.Controllers
             return View();
         }
 
-        //Post Method
+        //Post property
       
         [HttpPost]
         [Authorize]
@@ -76,10 +76,24 @@ namespace Rentisha.Controllers
             return View();
         }
 
-
-        public ActionResult ListingDetail()
+        //Get listing detail
+        [HttpGet]
+        
+        public ActionResult ListingDetail(int prop_id)
         {
-            return View();
+            using (var dc = new KodishaEntities2())
+            {
+                Property prop=dc.Properties.Find(prop_id);
+                if(prop != null)
+                {
+                    return View(prop);
+                }
+                else
+                {
+                    ViewBag.Message = "Invalid not operation";
+                }
+            }
+                return View();
         }
 
         [HttpGet]
@@ -103,6 +117,7 @@ namespace Rentisha.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult EditListing(Property prop)
         {
              if(ModelState.IsValid )
@@ -120,11 +135,13 @@ namespace Rentisha.Controllers
             return RedirectToAction("Listings");
         }
 
-
+        [Authorize]
         public ActionResult DeleteListing()
         {
 
             return View();
         }
+
+        
     }
 }

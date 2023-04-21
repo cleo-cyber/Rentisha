@@ -225,7 +225,6 @@
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Details\DetailsListing.cshtml" />
     <Content Include="Views\User\Registration.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
     <Content Include="Views\User\VerifyAccount.cshtml" />
@@ -233,6 +232,7 @@
     <Content Include="Views\Property\AddListings.cshtml" />
     <Content Include="Views\Property\Listings.cshtml" />
     <Content Include="Views\Property\EditListing.cshtml" />
+    <Content Include="Views\Property\ListingDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

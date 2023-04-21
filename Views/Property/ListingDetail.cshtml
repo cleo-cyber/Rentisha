@@ -1,0 +1,145 @@
+﻿@model Rentisha.Models.Property
+
+@{
+    ViewBag.Title = "ListingDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="~/Content/css/Details.css" rel="stylesheet" />
+    <title>Details</title>
+</head>
+
+<body>
+
+
+
+
+
+    <div class="containeer">
+        
+        <div id="detail">
+            <div id="detail-image">
+                <div class="big-detail-img">
+                    <img src="@Url.Content(Model.Image)" id="big-detail" alt="Alternate Text" />
+
+                </div>
+                <div class="smaller-detail-img">
+                    <img src="@Url.Content(Model.Image)" alt="Alternate Text" />
+                    <img src="~/Content/Images/house3.jpg" />
+                    <img src="~/Content/Images/house1.jpg" />
+                </div>
+            </div>
+            <div id="detail-descritption">
+                <div class="propName">
+
+                    <div id="propProperties">
+                        <small>  @Html.DisplayFor(model => model.Status)</small>
+                        <h2>   @Html.DisplayFor(model => model.PropertyName)</h2>
+                        <p> @Html.DisplayFor(model => model.County)</p>
+                        <p> @Html.DisplayFor(model => model.Town)</p>
+                        <h3>$   @Html.DisplayFor(model => model.Price)</h3>
+                    </div>
+                    <div class="p-features">
+                        <div class="dits">
+                            <span class="material-icons-sharp">bed</span>
+                            <small>3 Beds</small>
+
+                        </div>
+                        <div class="dits">
+                            <span class="material-icons-sharp">bathtub</span>
+                            <small>2 Baths</small>
+
+                        </div>
+                        <div class="dits">
+                            <span class="material-icons-sharp">open_with</span>
+                            <small>1200 sqft</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="descr">
+                    <h2>Description</h2>
+                    <p> @Html.DisplayFor(model => model.Description)</p>
+                </div>
+
+                <div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="containeer">
+        <div class="left">
+            <div class="property">
+
+
+                <div class="accord">
+                    <ul id="accordion-item">
+                        <li>
+                            <label for="first">Details and features <span class="opener">&#x3e</span></label>
+
+                            <div class="content">
+                                <h3>Area Size (sqft) <span>3</span></h3>
+                                <h3>Bedrooom <span>3</span></h3>
+                                <h3>Washroom <span>2</span></h3>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="feature">
+
+                </div>
+            </div>
+        </div>
+        <div class="right">
+
+            <div class="contact">
+                <h3>Contact Realtor</h3>
+                <form action="#" autocomplete="off">
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Your Name" required>
+                    <label for="Email">Email</label>
+                    <input type="email" placeholder="Your Email" required>
+                    <label for="Phone No">Phone No</label>
+                    <input type="text" placeholder="e.g +254 071223434">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="tarea" cols="30" rows="10" placeholder="Im interested in this property"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/Js/Details.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
