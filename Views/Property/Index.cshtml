@@ -112,9 +112,10 @@
             <h1>Popular Properties</h1>
 
         </div>
-        @foreach (var item in Model)
-        {
-            <div class="listings">
+        <div class="listings">
+            @foreach (var item in Model)
+            {
+
                 <div class="listing">
 
                     <img src="@Url.Content(item.Image)" />
@@ -128,15 +129,16 @@
                             <p>2 Tubs<i class='bx bx-bath' style='color:#176677'></i></p>
                         </div>
                     </div>
+
                 </div>
-                </div>
-                }
+            }
+        </div>
 
 
 
 
 
-              
+
             <div class="viewmore">
                 <Button class="btn " onclick="location.href=" @Url.Action("Listings", "Property") ">
                     @Html.ActionLink("View All Properties", "Listings", "Property")

@@ -155,8 +155,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\DetailsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Crypto.cs" />
@@ -233,6 +231,8 @@
     <Content Include="Views\Property\Listings.cshtml" />
     <Content Include="Views\Property\EditListing.cshtml" />
     <Content Include="Views\Property\ListingDetail.cshtml" />
+    <Content Include="Views\Property\Search.cshtml" />
+    <Content Include="Views\Admin\Listings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

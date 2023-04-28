@@ -142,6 +142,19 @@ namespace Rentisha.Controllers
             return View();
         }
 
+        public ActionResult Search(string search_string) {
+            using(var dc = new KodishaEntities2())
+            {
+                var prop = from p in dc.Properties select p;
+                if (!String.IsNullOrEmpty(search_string))
+                {
+                    prop=prop.Where(s=>s.County.Contains(search_string));
+                }
+                return View(prop.ToList());
+            }
+        
+        }
+
         
     }
 }
