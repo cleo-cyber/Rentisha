@@ -97,6 +97,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Kodisha.mdf" />
+    <Content Include="App_Data\Kodisha_log.ldf">
+      <DependentUpon>Kodisha.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\css\Addlisting.css" />
     <Content Include="Content\css\Admin.css" />
     <Content Include="Content\css\Details.css" />
@@ -115,22 +119,35 @@
     <Content Include="Content\Images\post2.png" />
     <Content Include="Content\Images\rectangle_ek2.png" />
     <Content Include="Content\Images\rectangle_ek4.png" />
+    <Content Include="Content\Images\Reg.jpg" />
     <Content Include="Content\Js\addListing.js" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\Js\admin.js" />
     <Content Include="Content\Js\Autohide.js" />
+    <Content Include="Content\Js\Details.js" />
     <Content Include="Content\Js\Listing.js" />
     <Content Include="Content\Js\Main.js" />
+    <Content Include="Content\css\Registration.css" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Listings.Context.tt">
+    <Content Include="Models\ListModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Listings.edmx</DependentUpon>
-      <LastGenOutput>Listings.Context.cs</LastGenOutput>
+      <DependentUpon>ListModel.edmx</DependentUpon>
+      <LastGenOutput>ListModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Listings.tt">
+    <Content Include="Models\ListModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Listings.edmx</DependentUpon>
-      <LastGenOutput>Listings.cs</LastGenOutput>
+      <DependentUpon>ListModel.edmx</DependentUpon>
+      <LastGenOutput>ListModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RegModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegModel.edmx</DependentUpon>
+      <LastGenOutput>RegModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RegModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegModel.edmx</DependentUpon>
+      <LastGenOutput>RegModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -138,54 +155,84 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ListingController.cs" />
-    <Compile Include="Controllers\PropertiesController.cs" />
-    <Compile Include="DAL\Property_DAL.cs" />
+    <Compile Include="Controllers\PropertyController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Crypto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Listing.cs">
-      <DependentUpon>Listings.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Listings.Context.cs">
+    <Compile Include="Models\Extended\User.cs" />
+    <Compile Include="Models\ListModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Listings.Context.tt</DependentUpon>
+      <DependentUpon>ListModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Listings.cs">
+    <Compile Include="Models\ListModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Listings.tt</DependentUpon>
+      <DependentUpon>ListModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Listings.Designer.cs">
+    <Compile Include="Models\ListModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Listings.edmx</DependentUpon>
+      <DependentUpon>ListModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Properties.cs" />
+    <Compile Include="Models\Property.cs">
+      <DependentUpon>ListModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>RegModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\Listings.edmx">
+    <EntityDeploy Include="Models\RegModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Listings.Designer.cs</LastGenOutput>
+      <LastGenOutput>RegModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Listings.edmx.diagram">
-      <DependentUpon>Listings.edmx</DependentUpon>
+    <Content Include="Models\RegModel.edmx.diagram">
+      <DependentUpon>RegModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ListModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ListModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ListModel.edmx.diagram">
+      <DependentUpon>ListModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Listing\AddListing.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
-    <Content Include="Views\Listing\ListingDetail.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Properties\DisplayListing.cshtml" />
-    <Content Include="Views\Properties\AddProperty.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
+    <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\User\VerifyAccount.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Property\AddListings.cshtml" />
+    <Content Include="Views\Property\Listings.cshtml" />
+    <Content Include="Views\Property\EditListing.cshtml" />
+    <Content Include="Views\Property\ListingDetail.cshtml" />
+    <Content Include="Views\Property\Search.cshtml" />
+    <Content Include="Views\Admin\Listings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,7 +241,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="ListingImage\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

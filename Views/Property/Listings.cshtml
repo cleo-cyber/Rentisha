@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Rentisha.Models.Property>
+
+@{
+    ViewBag.Title = "Listings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/Listing.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<section>
+    <div class="welcome-section">
+        <div class="section1">
+            <h1>OUR LISTINGS</h1>
+            <small>Kodisha> <span>Listings</span> </small>
+        </div>
+        <div class="filter-form">
+            <form action="@Url.Action("Search")" method="get">
+                <input type="search" name="search_string" placeholder="Enter County...">
+
+                <div class="selects">
+                    <select>
+                        <option selected>Choose type</option>
+                        <option value="1">Bedsitter</option>
+                        <option value="">1 Bedrooom</option>
+                        <option value="3">2 Bedrooom</option>
+                    </select>
+                    <select>
+                        <option selected>Choose location</option>
+                        <option value="1">Nairobi</option>
+                        <option value="2">Eldoret</option>
+                        <option value="3">Nakuru</option>
+                    </select>
+                    <select>
+                        <option selected>Choose type</option>
+                        <option value="1">Bedsitter</option>
+                        <option value="">1 Bedrooom</option>
+                        <option value="3">2 Bedrooom</option>
+                    </select>
+                </div>
+
+                <button type="submit">Search Now</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div class="card-section">
+    @foreach (var item in Model)
+    {
+        <div class="card" onclick="location.href='@Url.Action("ListingDetail","Property", new {prop_id=item.PropertyId})'">
+            <div class="img-container">
+
+                <img src="@Url.Content(item.Image)" />
+            </div>
+            <div class="rent">
+                <small>   @Html.DisplayFor(modelItem => item.Status)</small>
+                <h2>      @Html.DisplayFor(modelItem => item.Price)</h2>
+            </div>
+            <div class="proprName">
+                <h2>  @Html.DisplayFor(modelItem => item.PropertyName)</h2>
+            </div>
+            <div class="proprName">
+                <h2>  @Html.DisplayFor(modelItem => item.County)</h2>
+            </div>
+            <div class="proprName">
+                <h2>  @Html.DisplayFor(modelItem => item.Town)</h2>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="subfeature">
+                        <span class="material-icons-sharp">bed</span>
+                        <small>  @Html.DisplayFor(modelItem => item.Beds) Beds</small>
+
+                    </div>
+
+                    <div class="subfeature">
+                        <span class="material-icons-sharp">bathtub</span>
+                        <small>   @Html.DisplayFor(modelItem => item.Rooms) Rooms</small>
+
+                    </div>
+                    <div class="subfeature">
+                        <span class="material-icons-sharp">open_with</span>
+                        <small>1200 sqft</small>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    }
+</div>
+<div class="pagination">
+    <span class="active">1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+</div>
+
+
+<script src="~/Content/Js/Autohide.js"></script>

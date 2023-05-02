@@ -77,11 +77,12 @@ p {
     align-items: center;
 }
 
-    .navlink a, li {
+    .navlink  li {
         text-decoration: none;
         color: var(--color-dark-variant);
         font-size: var(--p-font);
         position: relative;
+        cursor:pointer;
     }
 
 /* Burger menu */
