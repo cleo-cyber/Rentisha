@@ -1,6 +1,9 @@
 ﻿using Rentisha.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
@@ -157,4 +160,5 @@ namespace Rentisha.Controllers
 
         
     }
+
 }
